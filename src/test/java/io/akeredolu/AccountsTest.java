@@ -24,7 +24,7 @@ public class AccountsTest {
 
     @Test
     public void getBalanceTestFrozen(){
-        Accounts testAccount3 = new Accounts(3,"Christopher Wallace",AccountTypes.INVESTMENT,Status.FROZEN,100.0, OverDraft.ENABBLED);
+        Accounts testAccount3 = new Accounts(3,"Christopher Wallace",AccountTypes.INVESTMENT,Status.FROZEN,100.0, OverDraft.ENABLED);
         double expectedValue = testAccount3.getBalance();
         double actualValue = 0;
         Assert.assertEquals(expectedValue,actualValue,.01);
@@ -74,7 +74,7 @@ public class AccountsTest {
     @Test
     public void overDrawTest(){
         Accounts testAccount9 = new Accounts(9,"OG Bobby Johnson",AccountTypes.CHECKING,Status.OPEN,0.1, OverDraft.AUTOMATIC);
-        double expectedValue = testAccount9.overDraw(OverDraft.ENABBLED,100.0);
+        double expectedValue = testAccount9.overDraw(OverDraft.ENABLED,100.0);
         double actualValue = testAccount9.getBalance();
         Assert.assertEquals(expectedValue,actualValue,.01);
 

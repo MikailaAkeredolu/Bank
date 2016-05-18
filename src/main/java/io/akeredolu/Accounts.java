@@ -1,11 +1,13 @@
 package io.akeredolu;
-
+import io.akeredolu.Transactions.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by mikailaakeredolu on 5/18/16.
  */
-public class Accounts {
+
+public class Accounts extends Transactions{
 
     private AccountTypes accountType;
     private static long accountNumber;
@@ -17,7 +19,14 @@ public class Accounts {
     private double credit;
     private Status status;
 
+    private AccountTypes transactionType;
+    private double transactionAmount;
+    private Accounts sourceAccount;
+    private Accounts destinationAccount;
+    private Date timeStamp;
+    private static long uniqueFtnNumber;
 
+    public Accounts(){}
     //Method to add transactions to array list
 
     public Accounts(AccountTypes accType,String achName){
@@ -37,7 +46,12 @@ public class Accounts {
         this.checkOverdraft = ovD;
     }
 
+    ArrayList<Transactions> recordOfTransactions = new ArrayList<Transactions>();
 
+    public void addTransactions(){
+
+        recordOfTransactions.add(new Transactions(sourceAccount,destinationAccount,transactionType,transactionAmount));
+    }
 
     public String transferFunds(Accounts accountObjectDestination, double amount){
         if((accountHoldersName == accountObjectDestination.accountHoldersName )  && (amount < balance) && (accountObjectDestination.status == Status.FROZEN)){
@@ -50,16 +64,6 @@ public class Accounts {
 
     }
 
-
-    //Need an ArrayList to hold transaction history
-
-    ArrayList<Transactions> recordOfTransactions = new ArrayList<Transactions>();
-
-    //Track transactions
-    public void addTransactions(AccountTypes typeOfTransAcc, double transAmount ,String transAction){
-
-        recordOfTransactions.add(new Transactions(typeOfTransAcc, transAmount,transAction));
-    }
 
     //Methods
 
@@ -131,10 +135,10 @@ public class Accounts {
     }
 
     public double overDraw(OverDraft choice, double debitAmount){
-        if(choice == OverDraft.ENABBLED && debitAmount > balance){
+        if(choice == OverDraft.ENABLED && debitAmount > balance){
             denialStatus();
             return balance;
-        }else if(choice == OverDraft.ENABBLED || choice == OverDraft.AUTOMATIC && debitAmount < balance){
+        }else if(choice == OverDraft.ENABLED || choice == OverDraft.AUTOMATIC && debitAmount < balance){
             return balance = balance - debitAmount;
         }else{
             return balance;
