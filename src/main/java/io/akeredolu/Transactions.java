@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Transactions {
 
-    private AccountTypes transactionType;
+    private String transactionType;
     private double transactionAmount;
     private Accounts sourceAccount;
     private Accounts destinationAccount;
@@ -17,7 +17,7 @@ public class Transactions {
 
     public Transactions(){}
 
-    public Transactions(Accounts sourceA, Accounts destinationA, AccountTypes typeOfTransAcc,double transAmount){
+    public Transactions(Accounts sourceA, Accounts destinationA, String typeOfTransAcc,double transAmount){
         this.transactionType = typeOfTransAcc;
         this.transactionAmount = transAmount;
         this.sourceAccount = sourceA;

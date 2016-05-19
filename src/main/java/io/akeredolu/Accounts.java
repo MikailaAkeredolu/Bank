@@ -19,13 +19,6 @@ public class Accounts extends Transactions{
     private double credit;
     private Status status;
 
-    private AccountTypes transactionType;
-    private double transactionAmount;
-    private Accounts sourceAccount;
-    private Accounts destinationAccount;
-    private Date timeStamp;
-    private static long uniqueFtnNumber;
-
     public Accounts(){}
     //Method to add transactions to array list
 
@@ -48,9 +41,9 @@ public class Accounts extends Transactions{
 
     ArrayList<Transactions> recordOfTransactions = new ArrayList<Transactions>();
 
-    public void addTransactions(){
+    public void addTransactions(Accounts sourceA, Accounts sourceB, String transType,double transA){
 
-        recordOfTransactions.add(new Transactions(sourceAccount,destinationAccount,transactionType,transactionAmount));
+        recordOfTransactions.add(new Transactions(sourceA,sourceB,transType,transA));
     }
 
     public String transferFunds(Accounts accountObjectDestination, double amount){
