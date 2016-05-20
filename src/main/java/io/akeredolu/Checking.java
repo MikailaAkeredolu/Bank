@@ -7,7 +7,7 @@ public class Checking extends Accounts{
 private double interestRate = 3.0;
 
     public Checking(String nameOnCheckingsAccount){
-       super();
+       super(AccountTypes.CHECKING,nameOnCheckingsAccount);
     }
 
 

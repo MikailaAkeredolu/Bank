@@ -5,7 +5,8 @@ package io.akeredolu;
  */
 public class Investments extends Accounts {
     private double interestRate = 5.0;
-    public Investments(String nameOnInvestmentAccount, double balnceOfInvestmentAccount){
-        super();
+    public Investments(String nameOnInvestmentAccount){
+        super(AccountTypes.INVESTMENT,nameOnInvestmentAccount);
+
     }
 }

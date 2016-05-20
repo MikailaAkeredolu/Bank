@@ -1,8 +1,5 @@
 package io.akeredolu;
-import io.akeredolu.Transactions.*;
 import java.util.ArrayList;
-import java.util.Date;
-
 /**
  * Created by mikailaakeredolu on 5/18/16.
  */
@@ -39,12 +36,27 @@ public class Accounts extends Transactions{
         this.checkOverdraft = ovD;
     }
 
+    //to other accounts
     ArrayList<Transactions> recordOfTransactions = new ArrayList<Transactions>();
 
     public void addTransactions(Accounts sourceA, Accounts sourceB, String transType,double transA){
 
         recordOfTransactions.add(new Transactions(sourceA,sourceB,transType,transA));
     }
+
+    public void printTransactionHistory(){
+
+        System.out.println(recordOfTransactions);
+    }
+
+
+
+    //Cash
+    public void addTransactions(Accounts sourceA, String transType,double transA){
+
+        recordOfTransactions.add(new Transactions(sourceA,transType,transA));
+    }
+
 
     public String transferFunds(Accounts accountObjectDestination, double amount){
         if((accountHoldersName == accountObjectDestination.accountHoldersName )  && (amount < balance) && (accountObjectDestination.status == Status.FROZEN)){
@@ -76,6 +88,8 @@ public class Accounts extends Transactions{
     public double deductDebitFromAccount(double removeMoney){
         if(status == Status.OPEN){
             balance =  balance - removeMoney;
+            //Accounts sourceA, String typeOfTransAcc,double transAmount
+            addTransactions(this, "Debit",removeMoney);
             approvalStatus();
             return balance;
         }else {
@@ -87,6 +101,7 @@ public class Accounts extends Transactions{
     public double addCreditToAccount(double addMoney){
         if(status == Status.OPEN){
             balance = balance + addMoney;
+            addTransactions(this, "Credit",addMoney);
             approvalStatus();
             return balance;
         }else {

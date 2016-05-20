@@ -17,6 +17,7 @@ public class Transactions {
 
     public Transactions(){}
 
+    //to other accounts
     public Transactions(Accounts sourceA, Accounts destinationA, String typeOfTransAcc,double transAmount){
         this.transactionType = typeOfTransAcc;
         this.transactionAmount = transAmount;
@@ -26,6 +27,20 @@ public class Transactions {
         uniqueFtnNumber++;
 
     }
+
+    //cash
+
+    public Transactions(Accounts sourceA, String typeOfTransAcc,double transAmount){
+        this.transactionType = typeOfTransAcc;
+        this.transactionAmount = transAmount;
+        this.sourceAccount = sourceA;
+        this.destinationAccount = null;
+        this.timeStamp = new Date();
+        uniqueFtnNumber++;
+
+    }
+
+
 
 
     /*
@@ -48,5 +63,9 @@ public class Transactions {
     //TimeStamp Getter
     public Date getTimeStamp() {
         return timeStamp;
+    }
+
+    public static long getUniqueFtnNumber() {
+        return uniqueFtnNumber;
     }
 }

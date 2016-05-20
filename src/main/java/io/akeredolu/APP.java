@@ -10,5 +10,8 @@ public class APP {
        // Accounts newT = new Accounts();
         //
         //System.out.println(newT.getTimeStamp());
+
+        userInputHandler userInput = new userInputHandler();
+        userInput.engine();
     }
 }

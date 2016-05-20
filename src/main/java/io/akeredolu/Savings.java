@@ -7,7 +7,7 @@ public class Savings extends Accounts {
 private double interestRate = 1.0;
 
 
-    public Savings(String nameOnSavingssAccount, double balnceOfSavingsAccount){
-       super();
+    public Savings(String nameOnSavingssAccount){
+       super(AccountTypes.SAVINGS,nameOnSavingssAccount);
     }
 }
