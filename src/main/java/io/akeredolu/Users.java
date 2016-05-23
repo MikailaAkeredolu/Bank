@@ -11,17 +11,15 @@ public class Users  {
 
     private String username;
     private String userPassword;
-   // private long accountNumber = 2000;
-   // AccountTypes typeofAccNeeded;
 
     public Users(String username, String userPassword){
         this.username = username;
         this.userPassword = userPassword;
     }
 
-    //HasMap
+    //HasMaps
 
-    Map<String, Map<Long,Accounts>>userBankAccounts = new HashMap<String, Map<Long, Accounts>>(); //checkins/savings
+    Map<String, Map<Long,Accounts>>userBankAccounts = new HashMap<String, Map<Long, Accounts>>(); //checking/savings
 
     Map<Long,Accounts>userAccounts = new HashMap<Long,Accounts>();  //associate account with account number
 

@@ -1,7 +1,5 @@
 package io.akeredolu;
-
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -12,9 +10,6 @@ public class userInputHandler {
     Accounts currentAccountOnDisplay;
     int currentIDOnDisplay;
     boolean power = true;
-
-   // UserAccountNanager uam = new UserAccountNanager();
-
 
     public static Scanner input = new Scanner(System.in);
 
@@ -66,29 +61,28 @@ public class userInputHandler {
         return account;
     }
 
-    public void createAccounts(int uChoice, int userID){
+    public void createAccounts(int uChoice, int userID) {
 
         System.out.println("what do you want your bank account number to be?");
 
-        long acNumber = input.nextLong();
+            long acNumber = input.nextLong();
 
-        switch (uChoice){
-            case 1:
-                UserAccountNanager.theBank.get(userID).addCheckingAccount(acNumber);
-                currentAccountOnDisplay = accessAccount(1,userID,acNumber);
-                break;
-            case 2:
-                UserAccountNanager.theBank.get(userID).addSavingsAccount(acNumber);
-                currentAccountOnDisplay = accessAccount(2,userID,acNumber);
-                break;
-            case 3:
-                UserAccountNanager.theBank.get(userID).addInvestmentAccount(acNumber);
-                currentAccountOnDisplay = accessAccount(3,userID,acNumber);
-                break;
-        }
+            switch (uChoice) {
+                case 1:
+                    UserAccountNanager.theBank.get(userID).addCheckingAccount(acNumber);
+                    currentAccountOnDisplay = accessAccount(1, userID, acNumber);
+                    break;
+                case 2:
+                    UserAccountNanager.theBank.get(userID).addSavingsAccount(acNumber);
+                    currentAccountOnDisplay = accessAccount(2, userID, acNumber);
+                    break;
+                case 3:
+                    UserAccountNanager.theBank.get(userID).addInvestmentAccount(acNumber);
+                    currentAccountOnDisplay = accessAccount(3, userID, acNumber);
+                    break;
+            }
+
     }
-
-
 
     public void createOrAccessUser() {
 
@@ -133,16 +127,14 @@ public class userInputHandler {
     public void runTheATM(){
         //check for returning user
        createOrAccessUser();
-
         while(power){
        startAtm();
         }
-
     }
 
 
     public void startAtm(){
-       int choice =  promptForIntValue("enter\n 1) to credit,\n 2) debit \n 3) checkBalance, \n4) Transfer Funds");
+       int choice =  promptForIntValue("enter\n 1) to credit,\n 2) debit \n 3) checkBalance, \n4) Transfer Funds \n5) Print Transaction History");
         menuhandler(choice);
     }
 
@@ -168,6 +160,8 @@ public class userInputHandler {
                     System.out.println("There is no account to transfer to. Make sure you choose a valid account");
                 }
                 break;
+            case 5:
+                currentAccountOnDisplay.printTransactionHistory();
             default:
                 System.out.println("You entered the wrong Information");
         }

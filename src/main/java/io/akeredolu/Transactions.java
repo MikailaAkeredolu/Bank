@@ -18,6 +18,7 @@ public class Transactions {
     public Transactions(){}
 
     //to other accounts
+
     public Transactions(Accounts sourceA, Accounts destinationA, String typeOfTransAcc,double transAmount){
         this.transactionType = typeOfTransAcc;
         this.transactionAmount = transAmount;
@@ -28,7 +29,7 @@ public class Transactions {
 
     }
 
-    //cash
+
 
     public Transactions(Accounts sourceA, String typeOfTransAcc,double transAmount){
         this.transactionType = typeOfTransAcc;
@@ -41,6 +42,16 @@ public class Transactions {
     }
 
 
+    @Override
+    public String toString() {
+        return "Transactions{" +
+                "transactionType='" + transactionType + '\'' +
+                ", transactionAmount=" + transactionAmount +
+                ", sourceAccount=" + sourceAccount +
+                ", destinationAccount=" + destinationAccount +
+                ", timeStamp=" + timeStamp +
+                '}';
+    }
 
     //TimeStamp Getter
     public Date getTimeStamp() {

@@ -47,8 +47,12 @@ public class Accounts extends Transactions{
     }
 
     public void printTransactionHistory(){
+        for(int t = this.recordOfTransactions.size() -1 ; t>=0; t--){
+            System.out.println(this.recordOfTransactions.get(t).toString());
+           // System.out.println(recordOfTransactions);
+        }
 
-        System.out.println(recordOfTransactions);
+        //System.out.println(recordOfTransactions);
     }
 
 
