@@ -1,5 +1,7 @@
 package io.akeredolu;
 import java.util.ArrayList;
+
+
 /**
  * Created by mikailaakeredolu on 5/18/16.
  */
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 public class Accounts extends Transactions{
 
     private AccountTypes accountType;
-    private static long accountNumber;
+    private long accountNumber;
     private  String accountHoldersName;
     private OverDraft checkOverdraft;
     private double interestRate = 10.0;
@@ -16,13 +18,13 @@ public class Accounts extends Transactions{
     private double credit;
     private Status status;
 
-    public Accounts(){}
-    //Method to add transactions to array list
+    //constructor to create a bank account with
+    //no need to include account number and type in constructor
 
-    public Accounts(AccountTypes accType,String achName){
-        accountNumber++;
-        this.accountType = accType;
-        this.accountHoldersName = achName;
+    public Accounts(long accountNumber){
+        this.accountNumber = accountNumber;
+        this.balance = 0.00;
+        this.status = Status.OPEN;
     }
 
     //Constructor used for testing
@@ -81,8 +83,6 @@ public class Accounts extends Transactions{
         return balance;
 
     }
-
-    //return Double.toString(balance);
 
 
     public double deductDebitFromAccount(double removeMoney){
@@ -213,13 +213,12 @@ public class Accounts extends Transactions{
         this.balance = balance;
     }
 
-
-    public static long getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
-    public static void setAccountNumber(long accountNumber) {
-        Accounts.accountNumber = accountNumber;
+    public void setAccountNumber(long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
 }

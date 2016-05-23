@@ -40,9 +40,6 @@ public class Transactions {
 
     }
 
-
-
-
     /*
 
      //Transactions stuff

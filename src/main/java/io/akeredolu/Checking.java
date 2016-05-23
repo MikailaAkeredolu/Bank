@@ -6,8 +6,8 @@ package io.akeredolu;
 public class Checking extends Accounts{
 private double interestRate = 3.0;
 
-    public Checking(String nameOnCheckingsAccount){
-       super(AccountTypes.CHECKING,nameOnCheckingsAccount);
+    public Checking(long accountNumber){
+       super(accountNumber);
     }
 
 

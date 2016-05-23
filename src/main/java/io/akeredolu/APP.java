@@ -12,6 +12,8 @@ public class APP {
         //System.out.println(newT.getTimeStamp());
 
         userInputHandler userInput = new userInputHandler();
-        userInput.engine();
+        userInput.runTheATM();
+
+
     }
 }
