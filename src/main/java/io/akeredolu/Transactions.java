@@ -40,21 +40,6 @@ public class Transactions {
 
     }
 
-    /*
-
-     //Transactions stuff
-    private AccountTypes transactionType;
-    private double transactionAmount;
-    private Accounts sourceAccount;
-    private Accounts destinationAccount;
-    private Date timeStamp;
-    private static long uniqueFtnNumber;
-
-    //TimeStamp Getter
-    public Date getTimeStamp() {
-        return timeStamp;
-    }
-     */
 
 
     //TimeStamp Getter

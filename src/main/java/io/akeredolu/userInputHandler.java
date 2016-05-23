@@ -142,7 +142,7 @@ public class userInputHandler {
 
 
     public void startAtm(){
-       int choice =  promptForIntValue("enter\n 1) to credit,\n 2) debit \n 3) checkBalance, \n4) Transfer Funds \n5) print transaction History ");
+       int choice =  promptForIntValue("enter\n 1) to credit,\n 2) debit \n 3) checkBalance, \n4) Transfer Funds");
         menuhandler(choice);
     }
 
@@ -165,15 +165,9 @@ public class userInputHandler {
                 Accounts accounts = accessAccount(promptForIntValue("What type of account 1) checking, 2) savings, 3) investments)"),promptForIntValue("what's the iD of the user to transfer funds to?"),promptUserForLong("Whats the account number to transfer funds to? "));
                 currentAccountOnDisplay.transferFunds(accounts, promptUserForDouble("Enter the amount to transfer "));}
                 catch (NullPointerException e){
-                    System.out.println(" there is no account to transfer to");
+                    System.out.println("There is no account to transfer to. Make sure you choose a valid account");
                 }
                 break;
-            case 5:
-                currentAccountOnDisplay.printTransactionHistory();
-                //loop through with array list and use tostring methodd
-                break;
-            case 6:
-                currentAccountOnDisplay.closeAccount();
             default:
                 System.out.println("You entered the wrong Information");
         }
