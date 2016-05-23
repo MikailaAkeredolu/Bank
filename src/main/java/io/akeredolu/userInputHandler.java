@@ -161,8 +161,12 @@ public class userInputHandler {
                 System.out.println("Your balance is " + currentAccountOnDisplay.getBalance());
              break;
             case 4:
+                try{
                 Accounts accounts = accessAccount(promptForIntValue("What type of account 1) checking, 2) savings, 3) investments)"),promptForIntValue("what's the iD of the user to transfer funds to?"),promptUserForLong("Whats the account number to transfer funds to? "));
-                currentAccountOnDisplay.transferFunds(accounts, promptUserForDouble("Enter the amount to transfer "));
+                currentAccountOnDisplay.transferFunds(accounts, promptUserForDouble("Enter the amount to transfer "));}
+                catch (NullPointerException e){
+                    System.out.println(" there is no account to transfer to");
+                }
                 break;
             case 5:
                 currentAccountOnDisplay.printTransactionHistory();
